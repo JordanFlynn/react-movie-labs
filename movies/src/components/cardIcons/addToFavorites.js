@@ -12,10 +12,14 @@ const AddToFavoritesIcon = ({ movie }) => {
   };
 
   return (
-    <IconButton aria-label="add to favorites" onClick={handleAddToFavorites}>
-      <FavoriteIcon color="primary" fontSize="large" />
-    </IconButton>
-  );
+    <PageTemplate
+      title="Discover Movies"
+      movies={movies}
+      action={(movie) => {
+        return <AddToFavoritesIcon movie={movie} />
+      }}
+    />
+);
 };
 
 export default AddToFavoritesIcon;

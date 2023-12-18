@@ -35,13 +35,13 @@ const FavoriteMoviesPage = () => {
 
   return (
     <PageTemplate
-      title="Favourite Movies"
+      title="Favorite Movies"
       movies={movies}
       action={(movie) => {
-        return(
+        return (
           <>
-            <RemoveFromFavorites movie = {movie}/>
-            <WriteReview movie = {movie} />
+            <RemoveFromFavorites movie={movie} />
+            <WriteReview movie={movie} />
           </>
         );
       }}
