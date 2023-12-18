@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Drawer from "@mui/material/Drawer";
+import MovieReviews from "../movieReviews";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -7,8 +9,6 @@ import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
-import Drawer from "@mui/material/Drawer";
-import MovieReviews from "../movieReviews"
 
 
 const root = {
@@ -58,19 +58,19 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           label={`${movie.vote_average} (${movie.vote_count}`}
         />
         <Chip label={`Released: ${movie.release_date}`} />
+
       </Paper>
-      <Paper 
-        component="ul" 
-        sx={{...root}}
-      >
-        <li>
+
+      <Paper component="ul" sx={{...root}}>
+      <li>
           <Chip label="Production Countries" sx={{...chip}} color="primary" />
         </li>
-        {movie.production_countries.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} sx={{...chip}} />
+        {movie.production_countries.map((production_countries) => (
+          <li key={production_countries.name}>
+            <Chip label={production_countries.name} sx={{...chip}} />
           </li>
         ))}
+
       </Paper>
       <Fab
         color="secondary"
@@ -89,6 +89,8 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         <MovieReviews movie={movie} />
       </Drawer>
       </>
+
+      
   );
 };
 export default MovieDetails ;
